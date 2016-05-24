@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Vbu-8Z-cjL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Page View Controller-->
+        <scene sceneID="hFY-sa-CMs">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Vbu-8Z-cjL" customClass="PageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p9p-oX-mqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="356"/>
+        </scene>
+        <!--Story Part View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoryPartViewController" id="BYZ-38-t0r" customClass="StoryPartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +24,48 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6g-Qu-J1I">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Record" id="bu5-d1-qp2">
+                                        <connections>
+                                            <action selector="micButtonTapped:" destination="BYZ-38-t0r" id="Vvz-by-lqe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="camera" id="rhv-Ew-khg">
+                                        <connections>
+                                            <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" id="yEq-zl-QSB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A8A-xH-I21">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="A8A-xH-I21" secondAttribute="trailing" id="5Ba-98-Sex"/>
+                            <constraint firstItem="A8A-xH-I21" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Crf-x2-W6H"/>
+                            <constraint firstItem="A8A-xH-I21" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="-44" id="EuS-fN-phc"/>
+                            <constraint firstItem="A8A-xH-I21" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FOE-OQ-njQ"/>
+                            <constraint firstItem="h6g-Qu-J1I" firstAttribute="top" secondItem="A8A-xH-I21" secondAttribute="bottom" id="ZaO-h1-egl"/>
+                            <constraint firstItem="h6g-Qu-J1I" firstAttribute="trailing" secondItem="A8A-xH-I21" secondAttribute="trailing" id="kj5-DW-CvC"/>
+                            <constraint firstItem="h6g-Qu-J1I" firstAttribute="leading" secondItem="A8A-xH-I21" secondAttribute="leading" id="qk3-rf-Cj2"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3SR-01-e3T"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="rhv-Ew-khg" id="Nhg-5v-Jb9"/>
+                        <outlet property="imageView" destination="A8A-xH-I21" id="W13-0h-jtP"/>
+                        <outlet property="micButton" destination="bu5-d1-qp2" id="9Ey-zC-LQ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="460" y="356"/>
         </scene>
     </scenes>
 </document>
